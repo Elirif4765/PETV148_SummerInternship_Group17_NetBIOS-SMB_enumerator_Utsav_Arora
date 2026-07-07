@@ -65,14 +65,6 @@ For any host flagged with anonymous shares:
 - Block ports 137/139/445 at the perimeter firewall for untrusted subnets
 - Migrate to SMBv3 with mandatory signed sessions
 
-## Future Work
-
-The current scanner is intentionally sequential for simplicity and log-write safety. Planned Version 2.0 work involves a concurrent worker-pool architecture to scale to larger subnets (e.g. full /16 ranges), which requires solving:
-- Bounded, latency-aware worker pool sizing
-- Per-host state isolation between workers
-- Serialized/locked writes to the shared report file
-- Deterministic shutdown so partial scans don't corrupt the log
-
 ## Disclaimer
 
 This tool is intended for authorized security auditing and educational use in environments you own or have explicit permission to test (e.g. isolated lab subnets). Do not run it against networks without authorization.
